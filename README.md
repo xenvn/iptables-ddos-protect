@@ -22,18 +22,18 @@ However, the filter table doesn’t support the PREROUTING chain. To get around 
 It supports most if not all rules that the filter table supports while also supporting all iptables chains.
 So you want to know why your iptables DDoS protection rules suck? It’s because you use the filter table and the INPUT chain to block the bad packets!
 
-**Now we will create the script**
-Step 1: Create a bash script with the name of iptables.sh
+**Now we will create the script**\
+Step 1: Create a bash script with the name of iptables.sh\
 vi /root/iptables.sh
 
 Step 2: Paste the above given script contents in your bash script file iptables.sh
 
-Step 3: Make the Read Write Execute permission
+Step 3: Make the Read Write Execute permission\
 chmod +x /root/iptables.sh
 
-Step 4 : Now run the script
+Step 4 : Now run the script\
 sh /root/iptables.sh
 
-Step 5: Check the IPTABLES rule with following command
-iptables -nL
+Step 5: Check the IPTABLES rule with following command\
+iptables -nL\
 iptables -t mangle -nL
