@@ -55,10 +55,10 @@ iptables -t mangle -A PREROUTING -s 127.0.0.0/8 ! -i lo -j DROP
 iptables -t mangle -A PREROUTING -f -j DROP
 
 ### 7: Limit connections per source IP ###
-iptables -A INPUT -p tcp -m connlimit --connlimit-above 150 -j REJECT --reject-with tcp-reset
+iptables -A INPUT -p tcp -m connlimit --connlimit-above 200 -j REJECT --reject-with tcp-reset
 
 ### 8: Limit new TCP connections per second per source IP ###
-iptables -A INPUT -p tcp -m conntrack --ctstate NEW -m limit --limit 60/s --limit-burst 30 -j ACCEPT
+iptables -A INPUT -p tcp -m conntrack --ctstate NEW -m limit --limit 60/s --limit-burst 60 -j ACCEPT
 iptables -A INPUT -p tcp -m conntrack --ctstate NEW -j DROP
 
 ### 9: SSH brute-force protection ###
